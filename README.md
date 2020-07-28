@@ -2,7 +2,9 @@
 The Ghost theme for the website of the American Leadership Foundation (usleadership.org)
 
 Note:
+<br/>
 To designate a default Home page, change route file to:
+<pre>
 routes:
   /:
     data: page.home
@@ -16,3 +18,4 @@ collections:
 taxonomies:
   tag: /tag/{slug}/
   author: /author/{slug}/
+</pre>
