@@ -11,7 +11,7 @@ The Ghost theme for the website of the American Leadership Foundation (usleaders
 - `tag.hbs` - Used for tag archives
 - `author.hbs` - Used for author archives
 
-# To designate a default Home page, change route file to:
+**To designate a default Home page, change route file to:**
 <pre>
 routes:
   /:
