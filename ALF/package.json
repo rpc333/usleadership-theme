@@ -1,6 +1,6 @@
 {
     "name": "ALF",
-    "description": "A minimalistic ALF theme for Ghost.",
+    "description": "The Ghost theme for the American Leadership Foundation website.",
     "demo": "https://london.ghost.io",
     "version": "1.0.0",
     "engines": {
