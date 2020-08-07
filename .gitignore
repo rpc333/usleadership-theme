@@ -9,7 +9,7 @@
 .tmp
 
 # Built asset files
-ALF/assets/built/*
-ALF/server/web/admin/views/*.html
-ALF/server/public/ghost.min.css
-ALF/assets/screenshot-desktop.jpg
+assets/built/*
+server/web/admin/views/*.html
+server/public/ghost.min.css
+assets/screenshot-desktop.jpg
