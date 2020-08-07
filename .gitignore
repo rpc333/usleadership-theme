@@ -1,0 +1,15 @@
+
+# OSX
+.DS_Store
+
+# Custom ignore starts here
+
+.build
+.dist
+.tmp
+
+# Built asset files
+ALF/assets/built/*
+ALF/server/web/admin/views/*.html
+ALF/server/public/ghost.min.css
+ALF/assets/screenshot-desktop.jpg
