@@ -1,0 +1,15 @@
+
+# OSX
+.DS_Store
+
+# Custom ignore starts here
+
+.build
+.dist
+.tmp
+
+# Built asset files
+assets/built/*
+server/web/admin/views/*.html
+server/public/ghost.min.css
+assets/screenshot-desktop.jpg
