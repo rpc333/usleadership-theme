@@ -137,10 +137,12 @@ body {
 .site-head {
     position: relative;
     z-index: 300;
-    margin-top: -10px;
-    margin-left: 125px;
-    margin-right: 125px;
+    background-color: var(--color-bg);
+    padding-top: 2vw;
+    padding-left: 125px;
+    padding-right: 125px;
     font-size: 2rem;
+    width: 100vw;
 }
 
 .site-head-container {
@@ -482,8 +484,12 @@ body {
 
 .post-content {
     max-width: 920px;
-    margin: 0 auto;
+    margin-left: 150px;
     padding: 6vw 0;
+}
+
+.with-image .post-content {
+    padding-top: 0;
 }
 
 .post-content-header {
@@ -493,9 +499,19 @@ body {
 }
 
 .post-content-title {
+    align-self: baseline;
+    padding-left: 125px;
     margin: 0 0 3vw;
     color: var(--color-base);
-    text-align: center;
+}
+
+@media (max-width: 900px) {
+    .post-content-title {
+        padding-left: 3vw;
+    }
+    .post-content {
+        margin-left: 3vw;
+    }
 }
 
 .post-content-excerpt {
@@ -683,13 +699,4 @@ body {
 .author-links .divider {
     display: inline-block;
     margin: 0 3px;
-}
-
-/* Page Template
-/* ---------------------------------------------------------- */
-
-.page-template .post-content-body h1,
-.page-template .post-content-body h2,
-.page-template .post-content-body h3 {
-    text-align: center;
 }

@@ -13,9 +13,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     {{!-- Styles'n'Scripts --}}
-    <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset "fonts/webfonts.css"}}" />
 
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&family=Unna&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}" />
 
     <link rel="stylesheet" type="text/css" href="{{asset "css/custom.css"}}" />
 
@@ -27,34 +27,33 @@
 
 <body class="{{body_class}}">
 
-    <div class="site-wrapper">
-
-        <header class="site-head">
-            <div class="site-head-container">
-                <a class="nav-burger" href="#">
-                    <div class="hamburger hamburger--collapse" aria-label="Menu" role="button"
-                        aria-controls="navigation">
-                        <div class="hamburger-box">
-                            <div class="hamburger-inner"></div>
-                        </div>
+    <header class="site-head">
+        <div class="site-head-container">
+            <a class="nav-burger" href="#">
+                <div class="hamburger hamburger--collapse" aria-label="Menu" role="button" aria-controls="navigation">
+                    <div class="hamburger-box">
+                        <div class="hamburger-inner"></div>
                     </div>
-                </a>
-                <nav id="swup" class="site-head-left">
-                    <li class="site-head-left"><a href="http://52.188.121.25/home/">American Leadership Foundation</a>
-                    </li>
-                </nav>
-                <div class="site-head-center">
-                    {{#if @site.logo}}
-                        {{!--  <a class="site-head-logo" href="{{@site.url}}"><img src="{{@site.logo}}" alt="{{@site.title}}" /></a> --}}
-                    {{else}}
-                        {{!--  <a class="site-head-logo" href="{{@site.url}}">{{@site.title}}</a> --}}
-                    {{/if}}
                 </div>
-                <div class="site-head-right">
-                    {{navigation}}
-                </div>
+            </a>
+            <nav id="swup" class="site-head-left">
+                <li class="site-head-left"><a href="/">American Leadership Foundation</a>
+                </li>
+            </nav>
+            <div class="site-head-center">
+                {{#if @site.logo}}
+                    {{!--  <a class="site-head-logo" href="{{@site.url}}"><img src="{{@site.logo}}" alt="{{@site.title}}" /></a> --}}
+                {{else}}
+                    {{!--  <a class="site-head-logo" href="{{@site.url}}">{{@site.title}}</a> --}}
+                {{/if}}
             </div>
-        </header>
+            <div class="site-head-right">
+                {{navigation}}
+            </div>
+        </div>
+    </header>
+
+    <div class="site-wrapper">
 
         <main id="site-main" class="site-main">
             <div id="swup" class="transition-fade">
