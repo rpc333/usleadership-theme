@@ -1,0 +1,45 @@
+
+.post-card {
+  position: relative;
+  display: flex;
+  position: relative;
+  height: 5vw;
+  margin-bottom: 2rem;
+  counter-increment: posts;
+}
+
+.post-card a {
+  color: var(--color-base);
+}
+
+.post-card-link {
+  display: block;
+}
+
+.post-card-content {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 1;
+}
+
+.post-card-date {
+  padding-right: 2ch;
+}
+
+.post-card-title {
+  margin: 0;
+  display: inline-block;
+  font-size: 2rem;
+  transition: all 0.3s cubic-bezier(.33,0,.2,1);
+}
+
+.post-card-link .post-card-content:hover .post-card-title {
+  text-decoration: underline;
+}

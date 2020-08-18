@@ -1,0 +1,21 @@
+/* Post Feed
+/* ---------------------------------------------------------- */
+
+.post-feed {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-feed-title {
+  margin-bottom: 1em;
+}
+
+.feed-preview.content-container {
+  padding: 0;
+}
+
+.feed-preview .feed-preview-title a {
+  margin-top: 0;
+  margin-bottom: 1.5em;
+  color: var(--color-base);
+}

@@ -1,0 +1,19 @@
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 75ch;
+  padding: 6vw 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.with-image .content-container {
+  padding-top: 0;
+}
+
+@media (max-width: 900px) {
+  .content-container {
+      margin-left: 3vw;
+  }
+}

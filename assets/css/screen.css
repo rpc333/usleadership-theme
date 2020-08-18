@@ -9,23 +9,34 @@ production stylesheet in assets/built/screen.css using gulp dev
 /* Lib - Local component imports
 /* ---------------------------------------------------------- */
 @import "vars.css";
-@import "components/global.css";
+
+@import "elements/global-reset.css";
+@import "elements/buttons.css";
+@import "elements/forms.css";
+@import "elements/lists.css";
+@import "elements/tables.css";
+@import "elements/animations.css";
+@import "elements/site-layout.css";
+
 @import "components/ghost.css";
-@import "components/lists.css";
-@import "components/grid.css";
-@import "components/tables.css";
-@import "components/forms.css";
-@import "components/buttons.css";
-@import "components/actions.css";
 @import "components/hamburger.css";
-@import "components/animations.css";
+@import "components/content-container.css";
+@import "components/footer.css";
+@import "components/splash-image.css";
+@import "components/post-card.css";
+@import "components/post-feed.css";
+
+@import "pages/home.css";
+@import "pages/board.css";
+@import "pages/chairman-letter.css";
+@import "pages/scholarship.css";
+@import "pages/post.css";
 
 
 /* Main - Theme styles
 /* ---------------------------------------------------------- */
 
 body {
-    font-family: 'Muli', sans-serif;
     background: var(--color-bg);
     transition: background 0.3s ease-out;
     transition-delay: 0.25;
@@ -49,16 +60,6 @@ body {
 
 /* Layout
 /* ---------------------------------------------------------- */
-
-.site-wrapper {
-    padding: 3vw;
-    min-height: 100vh;
-}
-@media (max-width: 850px) {
-    .site-wrapper {
-        padding: 6vw;
-    }
-}
 
 .page-head {
     display: flex;
@@ -211,9 +212,10 @@ body {
         z-index: 100;
     flex-shrink: 0;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: flex-end;
     font-size: 2rem;
+    height: 100%;
 }
 
 .span-1 {
@@ -230,16 +232,17 @@ body {
 .nav-burger {
     display: none;
     position: absolute;
-    left: 0;
+    left: 5px;
     z-index: 9999;
     padding: 12px 12px 12px 0;
 }
 
 @media (max-width: 850px) {
     .site-head {
-        padding: 0;
-        margin-left: 5px;
-        margin-right: 5px;
+        padding-top: 0;
+        padding-left: 5px;
+        padding-right: 5px;
+        padding-bottom: 0;
     }
     .nav-burger {
         display: block;
@@ -318,7 +321,6 @@ body {
     }
 
     .site-head-open {
-        background: rgba(255,255,255,1);
         transition: background 0.5s ease-out;
         transition-delay: 0.25;
         overflow: hidden;
@@ -329,13 +331,21 @@ body {
         height: calc(100vh - 14vw);
         overflow-y: scroll;
         transition: height 0.2s ease-in;
+        margin-left: 5vw;
     }
 
     .site-head-open .site-head-left,
     .site-head-open .site-head-right {
-        z-index: 9999;
         height: auto;
         transition: height 0.2s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+    }
+
+    .site-head-open .site-head-left {
+        margin-top: 1.5rem;
+    }
+
+    .site-head-open .site-head-container > * {
+        z-index: 500;
     }
 
     .site-head-open .site-head-left a,
@@ -363,151 +373,8 @@ body {
 }
 
 
-/* Post Feed
-/* ---------------------------------------------------------- */
-
-.post-feed {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.post-card {
-    position: relative;
-    flex: 1 1 50%;
-    display: flex;
-    position: relative;
-    height: 35vw;
-    background: linear-gradient(135deg, #1f1f1f 0%, #111 100%) center center;
-    background-size: cover;
-    overflow: hidden;
-    counter-increment: posts;
-}
-
-@media (max-width: 700px) {
-    .post-card {
-        flex: 1 1 100%;
-        height: 70vw;
-    }
-}
-
-.post-card-large {
-    flex: 1 1 100%;
-}
-
-.post-card-link {
-    flex: 1 1 auto;
-    display: block;
-}
-
-.post-card-content {
-    flex: 1 1 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    color: #fff;
-    background: rgba(0,0,0,0.1);
-    opacity: 1;
-    transition: opacity 0.5s cubic-bezier(.33,0,.2,1);
-}
-
-.post-card.with-image .post-card-content {
-    opacity: 0;
-}
-@media (max-width: 700px) {
-  .post-card.with-image .post-card-content {
-      opacity: 1;
-  }
-}
-
-.post-card-link:hover .post-card-content {
-    opacity: 1;
-    transition: opacity 0.3s cubic-bezier(.33,0,.2,1);
-}
-
-.post-card-title {
-    margin: 0;
-    display: inline-block;
-    font-size: 3.4rem;
-    max-width: 70%;
-    text-align: center;
-    transition: all 0.3s cubic-bezier(.33,0,.2,1);
-}
-
-/* Posts without images */
-.post-card.no-image:before {
-    display: block;
-    content: counter(posts);
-    position: absolute;
-    bottom: -0.15em;
-    right: 5vw;
-    font-size: 28vw;
-    line-height: 1em;
-    font-weight: var(--font-heavy);
-    letter-spacing: -0.1em;
-    color: rgba(0,0,0,0.2);
-}
-
-.post-card.no-image .post-card-content {
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding: 4vw;
-}
-
-.post-card.no-image .post-card-title {
-    font-size: 5rem;
-    line-height: 1.15em;
-    text-align: left;
-}
-
-.post-card.no-image:hover .post-card-title {
-    text-decoration: underline;
-}
-
-@media (max-width: 1200px) {
-    .post-card.no-image .post-card-title {
-        font-size: 3.4rem;
-    }
-}
-@media (max-width: 700px) {
-    .post-card.no-image:before {
-        font-size: 50vw;
-    }
-}
-
 /* Post Content
 /* ---------------------------------------------------------- */
-
-.post-content {
-    display: flex;
-    flex-direction: column;
-    max-width: 75ch;
-    padding: 6vw 0;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-footer.post-content {
-    padding-top: 10vw;
-    padding-bottom: 4vw;
-}
-
-footer.post-content > p:first-of-type,
-footer.post-content > p {
-    max-width: unset;
-    width: unset;
-    font-size: 0.9em;
-    font-variant: small-caps;
-    opacity: 0.8;
-}
-
-.with-image .post-content {
-    padding-top: 0;
-}
 
 .post-content-header {
     display: flex;
@@ -527,9 +394,6 @@ footer.post-content > p {
 @media (max-width: 900px) {
     .post-content-title {
         padding-left: 0;
-    }
-    .post-content {
-        margin-left: 3vw;
     }
 }
 

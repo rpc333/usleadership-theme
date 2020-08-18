@@ -53,29 +53,25 @@
         </div>
     </header>
 
-    <div class="site-wrapper">
+    <main id="site-main" class="site-main">
+        <div id="swup" class="transition-fade">
 
-        <main id="site-main" class="site-main">
-            <div id="swup" class="transition-fade">
+            {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
+            {{{body}}}
 
-                {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
-                {{{body}}}
+        </div>
+    </main>
 
-            </div>
-        </main>
-
-        {{!-- The footer at the very bottom of the screen --}}
-        <footer class="post-content">
-            <p>
-                The American Leadership Foundation, Inc. is a not-for-profit non-stock corporation based in Maryland.
-                <br>
-                Email us at: <a href="mailto: contact@usleadership.org">contact@usleadership.org</a>
-            </p>
+    {{!-- The footer at the very bottom of the screen --}}
+    <footer class="content-container">
+        <p>
+            The American Leadership Foundation, Inc. is a not-for-profit non-stock corporation based in Maryland.
             <br>
-            <p>Published with <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a></p>
-        </footer>
-
-    </div>
+            Email us at: <a href="mailto: contact@usleadership.org">contact@usleadership.org</a>
+        </p>
+        <br>
+        <p>Published with <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a></p>
+    </footer>
 
     <script src="{{asset "built/swup.js"}}" data-swup-ignore-script></script>
     <script src="{{asset "built/infinitescroll.js"}}" data-swup-ignore-script></script>

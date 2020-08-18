@@ -1,0 +1,6 @@
+/* Custom CSS for Chairman's Letter page */
+
+.page-chairman-letter .post-content-body > p:first-of-type {
+  width: 48ch;
+  font-size: 1.5em;
+}
