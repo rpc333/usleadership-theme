@@ -461,7 +461,7 @@ body {
 .post-content-body blockquote p {
     margin: 0 0 1em 0;
     color: inherit;
-    font-size: inherit;
+    font-size: 1.8rem;
     line-height: inherit;
     font-style: italic;
 }

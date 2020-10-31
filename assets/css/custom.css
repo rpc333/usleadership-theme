@@ -24,6 +24,22 @@ h1, h2, h3, h4, h5, h6,
   line-height: 1.2;
 }
 
+@media (max-width: 760px) {
+  .content-container > p,
+  .post-content-body > p {
+    margin-right: 2ch;
+    width: unset;
+  }
+}
+
+.post-content-body blockquote p {
+  line-height: 1.1;
+}
+
+.post-content-body cite {
+  font-style: italic;
+}
+
 .content-container h3 {
   margin-top: 1.75em;
   margin-bottom: 0.5em;
