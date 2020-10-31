@@ -73,8 +73,6 @@
         <p>Published with <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a></p>
     </footer>
 
-    <script src="{{asset "built/swup.js"}}" data-swup-ignore-script></script>
-    <script src="{{asset "built/infinitescroll.js"}}" data-swup-ignore-script></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
         </script>
@@ -87,22 +85,12 @@
         {{ghost_foot}}
     </div>
 
-    {{!-- Handle swup content replacement --}}
     <script data-swup-ignore-script>
         $(document).ready(function () {
             // Mobile Menu Trigger
             $('.nav-burger').click(function () {
                 $('body').toggleClass('site-head-open');
             });
-        });
-
-        // Initiate Swup transitions
-        var swup = new Swup({
-            plugins: [new SwupHeadPlugin(), new SwupScriptsPlugin()],
-        });
-        document.addEventListener('swup:contentReplaced', event => {
-            initInfiniteScroll(window, document);
-            $('body').removeClass('site-head-open');
         });
     </script>
 

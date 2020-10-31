@@ -1,0 +1,16 @@
+routes:
+  /:
+    template: home
+    data: page.home
+
+collections:
+  /news/:
+    permalink: /news/{slug}/
+    template: index
+    filter: primary_tag:news
+    data: tag.news
+  /chairman-letters/:
+    permalink: /chairman-letters/{year}/
+    template: index
+    filter: primary_tag:chairman-letters
+    data: tag.chairman-letters

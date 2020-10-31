@@ -7,7 +7,14 @@
 }
 
 .post-feed-title {
-  margin-bottom: 1em;
+}
+
+.post-feed-description {
+  margin-bottom: 3em;
+}
+
+.post-feed-description p {
+  font-size: 1.33em;
 }
 
 .feed-preview.content-container {
