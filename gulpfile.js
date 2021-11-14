@@ -9,7 +9,7 @@ var sourcemaps = require("gulp-sourcemaps");
 var sass = require("gulp-sass")(require("sass"));
 
 function serve(done) {
-    livereload.listen();
+    livereload.listen({ host: "127.0.0.1" });
     done();
 }
 
