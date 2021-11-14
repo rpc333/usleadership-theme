@@ -24,7 +24,7 @@
 
     <header class="site-head">
         <div class="site-head-container">
-            <a class="nav-burger" href="#">
+            <a class="nav-burger" id="nav-burger" href="#">
                 <div class="hamburger hamburger--collapse" aria-label="Menu" role="button" aria-controls="navigation">
                     <div class="hamburger-box">
                         <div class="hamburger-inner"></div>
@@ -66,9 +66,7 @@
         <p>Published with <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a></p>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
-        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
-        </script>
+    <script src="{{asset "built/mobile-nav-menu.js"}}"></script>
 
     <div>
         {{!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. --}}
@@ -77,15 +75,6 @@
         {{!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag --}}
         {{ghost_foot}}
     </div>
-
-    <script>
-        $(document).ready(function () {
-            // Mobile Menu Trigger
-            $('.nav-burger').click(function () {
-                $('body').toggleClass('site-head-open');
-            });
-        });
-    </script>
 
 </body>
 
