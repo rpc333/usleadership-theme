@@ -21,13 +21,6 @@
         "email": "contact@usleadership.org",
         "url": "https://usleadership.org"
     },
-    "gpm": {
-        "type": "theme",
-        "categories": [
-            "Minimal",
-            "Magazine"
-        ]
-    },
     "keywords": [
         "ghost",
         "theme",
@@ -37,9 +30,6 @@
         "type": "git",
         "url": "https://github.com/rpc333/usleadership-theme.git"
     },
-    "browserslist": [
-        "defaults"
-    ],
     "devDependencies": {
         "gscan": "4.10.1",
         "gulp": "4.0.2",
@@ -68,6 +58,12 @@
             },
             "xl": {
                 "width": 2000
+            }
+        },
+        "custom": {
+            "footer_text": {
+                "type": "text",
+                "default": "The American Leadership Foundation is a registered 501(c)(3) non-profit."
             }
         }
     }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{@site.lang}}">
+<html lang="{{@site.locale}}">
 
 <head>
 
@@ -56,25 +56,23 @@
     </main>
 
     {{!-- The footer at the very bottom of the screen --}}
-    <footer class="content-container">
-        <p>
-            The American Leadership Foundation, Inc. is a not-for-profit non-stock corporation based in Maryland.
-            <br>
-            Email us at: <a href="mailto: contact@usleadership.org">contact@usleadership.org</a>
-        </p>
-        <br>
-        <p>Published with <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a></p>
+    <footer class="site-footer content-container">
+        <section>
+            <p>{{@custom.footer_text}}</p>
+            <p>Email us at: <a href="mailto: contact@usleadership.org">contact@usleadership.org</a></p>
+        </section>
+        <section class="published-by-tag">
+            <p>Published with <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a></p>
+        </section>
     </footer>
 
     <script src="{{asset "built/mobile-nav-menu.js"}}"></script>
 
-    <div>
-        {{!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. --}}
-        {{{block "scripts"}}}
+    {{!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. --}}
+    {{{block "scripts"}}}
 
-        {{!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag --}}
-        {{ghost_foot}}
-    </div>
+    {{!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag --}}
+    {{ghost_foot}}
 
 </body>
 
