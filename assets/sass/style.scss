@@ -1,36 +1,36 @@
 /*
 
 This is a development CSS file which is built to a minified
-production stylesheet in assets/built/screen.css using gulp dev
+production stylesheet in assets/built/style.css using sass
 
 */
 
 
 /* Lib - Local component imports
 /* ---------------------------------------------------------- */
-@import "vars.css";
+@use "vars";
 
-@import "elements/global-reset.css";
-@import "elements/buttons.css";
-@import "elements/forms.css";
-@import "elements/lists.css";
-@import "elements/tables.css";
-@import "elements/animations.css";
-@import "elements/site-layout.css";
+@use "elements/global-reset";
+@use "elements/buttons";
+@use "elements/forms";
+@use "elements/lists";
+@use "elements/tables";
+@use "elements/animations";
+@use "elements/site-layout";
 
-@import "components/ghost.css";
-@import "components/hamburger.css";
-@import "components/content-container.css";
-@import "components/footer.css";
-@import "components/splash-image.css";
-@import "components/post-card.css";
-@import "components/post-feed.css";
+@use "components/ghost";
+@use "components/hamburger";
+@use "components/content-container";
+@use "components/footer";
+@use "components/splash-image";
+@use "components/post-card";
+@use "components/post-feed";
 
-@import "pages/home.css";
-@import "pages/board.css";
-@import "pages/chairman-letter.css";
-@import "pages/scholarship.css";
-@import "pages/post.css";
+@use "pages/home";
+@use "pages/board";
+@use "pages/chairman-letter";
+@use "pages/scholarship";
+@use "pages/post";
 
 
 /* Main - Theme styles

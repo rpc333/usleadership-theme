@@ -3,17 +3,10 @@ const pump = require('pump');
 
 // gulp plugins and utils
 var livereload = require('gulp-livereload');
-var postcss = require('gulp-postcss');
 var zip = require('gulp-zip');
 var uglify = require('gulp-uglify');
-var beeper = require('beeper');
-
-// postcss plugins
-var autoprefixer = require('autoprefixer');
-var colorFunction = require('postcss-color-function');
-var cssnano = require('cssnano');
-var customProperties = require('postcss-custom-properties');
-var easyimport = require('postcss-easy-import');
+var sourcemaps = require("gulp-sourcemaps");
+var sass = require("gulp-sass")(require("sass"));
 
 function serve(done) {
     livereload.listen();
@@ -23,7 +16,7 @@ function serve(done) {
 const handleError = (done) => {
     return function (err) {
         if (err) {
-            beeper();
+            console.log(err);
         }
         return done(err);
     };
@@ -36,21 +29,29 @@ function hbs(done) {
     ], handleError(done));
 }
 
-function css(done) {
-    var processors = [
-        easyimport,
-        customProperties({preserve: false}),
-        colorFunction(),
-        autoprefixer(),
-        cssnano()
-    ];
+function sassDev(done) {
+    pump(
+        [
+            src("assets/sass/**/*.scss"),
+            sourcemaps.init(),
+            sass().on("error", sass.logError),
+            sourcemaps.write(),
+            dest("assets/built/"),
+            livereload(),
+        ],
+        handleError(done)
+    );
+}
 
-    pump([
-        src('assets/css/*.css', {sourcemaps: true}),
-        postcss(processors),
-        dest('assets/built/', {sourcemaps: '.'}),
-        livereload()
-    ], handleError(done));
+function sassProd(done) {
+    pump(
+        [
+            src("assets/sass/**/*.scss"),
+            sass().on("error", sass.logError),
+            dest("assets/built/"),
+        ],
+        handleError(done)
+    );
 }
 
 function js(done) {
@@ -78,9 +79,10 @@ function zipper(done) {
     ], handleError(done));
 }
 
-const cssWatcher = () => watch('assets/css/**', css);
+const sassWatcher = () => watch("assets/sass/**", sassDev);
 const hbsWatcher = () => watch(['*.hbs', 'partials/**/*.hbs', '!node_modules/**/*.hbs'], hbs);
-const watcher = parallel(cssWatcher, hbsWatcher); const build = series(css, js);
+const watcher = parallel(sassWatcher, hbsWatcher); 
+const build = series(sassProd, js);
 const dev = series(build, serve, watcher);
 
 exports.build = build;
