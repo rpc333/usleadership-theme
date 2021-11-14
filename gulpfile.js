@@ -54,6 +54,17 @@ function sassProd(done) {
     );
 }
 
+function fonts(done) {
+    pump(
+        [
+            src("assets/fonts/**/*.woff"),
+            src("assets/fonts/**/*.woff2"),
+            dest("assets/built/fonts/"),
+        ],
+        handleError(done)
+    );
+}
+
 function js(done) {
     pump([
         src('assets/js/*.js', {sourcemaps: true}),
@@ -79,10 +90,11 @@ function zipper(done) {
     ], handleError(done));
 }
 
+const fontWatcher = () => watch("assets/fonts/**", fonts);
 const sassWatcher = () => watch("assets/sass/**", sassDev);
 const hbsWatcher = () => watch(['*.hbs', 'partials/**/*.hbs', '!node_modules/**/*.hbs'], hbs);
-const watcher = parallel(sassWatcher, hbsWatcher); 
-const build = series(sassProd, js);
+const watcher = parallel(fontWatcher, sassWatcher, hbsWatcher); 
+const build = series(fonts, sassProd, js);
 const dev = series(build, serve, watcher);
 
 exports.build = build;

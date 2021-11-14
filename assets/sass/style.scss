@@ -9,6 +9,7 @@ production stylesheet in assets/built/style.css using sass
 /* Lib - Local component imports
 /* ---------------------------------------------------------- */
 @use "vars";
+@use "webfonts";
 
 @use "elements/global-reset";
 @use "elements/buttons";
@@ -31,6 +32,8 @@ production stylesheet in assets/built/style.css using sass
 @use "pages/chairman-letter";
 @use "pages/scholarship";
 @use "pages/post";
+
+@use "custom";
 
 
 /* Main - Theme styles
