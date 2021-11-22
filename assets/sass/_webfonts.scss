@@ -1,0 +1,43 @@
+/* Webfont declarations */
+
+/* Regular weight */
+@font-face {
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: url('fonts/public-sans/PublicSans-Regular.woff2') format('woff2'),
+        url('fonts/public-sans/PublicSans-Regular.woff') format('woff');
+  }
+  @font-face {
+    font-family: 'Public Sans';
+    font-style: italic;
+    font-weight: 400;
+    src: url('fonts/public-sans/PublicSans-Italic.woff2') format('woff2'),
+         url('fonts/public-sans/PublicSans-Italic.woff') format('woff');
+  }
+  
+  /* Bold */
+  @font-face {
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 700;
+    src: url('fonts/public-sans/PublicSans-Bold.woff2') format('woff2'),
+         url('fonts/public-sans/PublicSans-Bold.woff') format('woff');
+  }
+  @font-face {
+    font-family: 'Public Sans';
+    font-style: italic;
+    font-weight: 700;
+    src: url('fonts/public-sans/PublicSans-BoldItalic.woff2') format('woff2'),
+         url('fonts/public-sans/PublicSans-BoldItalic.woff') format('woff');
+  }
+  
+  /* Black */
+  @font-face {
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 900;
+    src: url('fonts/public-sans/PublicSans-Black.woff2') format('woff2'),
+         url('fonts/public-sans/PublicSans-Black.woff') format('woff');
+  }
+  

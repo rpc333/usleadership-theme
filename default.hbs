@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{@site.lang}}">
+<html lang="{{@site.locale}}">
 
 <head>
 
@@ -13,13 +13,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     {{!-- Styles'n'Scripts --}}
-    <link rel="stylesheet" type="text/css" href="{{asset "fonts/webfonts.css"}}" />
 
-    <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}" />
-
-    <link rel="stylesheet" type="text/css" href="{{asset "css/custom.css"}}" />
-
-    <link rel="stylesheet" type="text/css" href="{{asset "css/prism.css"}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset "built/style.css"}}" />
 
     {{!-- This tag outputs SEO meta+structured data and other important settings --}}
     {{ghost_head}}
@@ -29,14 +24,14 @@
 
     <header class="site-head">
         <div class="site-head-container">
-            <a class="nav-burger" href="#">
+            <a class="nav-burger" id="nav-burger" href="#">
                 <div class="hamburger hamburger--collapse" aria-label="Menu" role="button" aria-controls="navigation">
                     <div class="hamburger-box">
                         <div class="hamburger-inner"></div>
                     </div>
                 </div>
             </a>
-            <nav id="swup" class="site-head-left">
+            <nav class="site-head-left">
                 <li class="site-head-left"><a href="/">American Leadership Foundation</a>
                 </li>
             </nav>
@@ -49,50 +44,37 @@
             </div>
             <div class="site-head-right">
                 {{navigation}}
+                {{navigation type="secondary"}}
             </div>
         </div>
     </header>
 
     <main id="site-main" class="site-main">
-        <div id="swup" class="transition-fade">
 
-            {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
-            {{{body}}}
+        {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
+        {{{body}}}
 
-        </div>
     </main>
 
     {{!-- The footer at the very bottom of the screen --}}
-    <footer class="content-container">
-        <p>
-            The American Leadership Foundation, Inc. is a not-for-profit non-stock corporation based in Maryland.
-            <br>
-            Email us at: <a href="mailto: contact@usleadership.org">contact@usleadership.org</a>
-        </p>
-        <br>
-        <p>Published with <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a></p>
+    <footer class="site-footer content-container">
+        <section>
+            <p>{{@custom.footer_text}}</p>
+            <p>Email us at: <a href="mailto: contact@usleadership.org">contact@usleadership.org</a></p>
+        </section>
+        <section class="published-by-tag">
+            <p>Published with <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a></p>
+        </section>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
-        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
-        </script>
+    <script src="{{asset "built/mobile-nav-menu.js"}}"></script>
+    <script src="{{asset "built/about-nav-rollup.js"}}"></script>
 
-    <div id="swup">
-        {{!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. --}}
-        {{{block "scripts"}}}
+    {{!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. --}}
+    {{{block "scripts"}}}
 
-        {{!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag --}}
-        {{ghost_foot}}
-    </div>
-
-    <script data-swup-ignore-script>
-        $(document).ready(function () {
-            // Mobile Menu Trigger
-            $('.nav-burger').click(function () {
-                $('body').toggleClass('site-head-open');
-            });
-        });
-    </script>
+    {{!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag --}}
+    {{ghost_foot}}
 
 </body>
 
