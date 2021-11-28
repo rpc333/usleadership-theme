@@ -1,5 +1,7 @@
 @use "sass:color";
 
+@use "vars" as *;
+
 /* Site Navigation
 /* ---------------------------------------------------------- */
 
@@ -7,11 +9,21 @@
     position: relative;
     z-index: 300;
     background-color: var(--color-bg);
-    padding-top: 2vw;
-    padding-left: 125px;
-    padding-right: 125px;
+    padding-top: 2vh;
+    padding-left: 15px;
+    padding-right: 15px;
     font-size: 2rem;
     width: 100vw;
+
+    @media (min-width: $medium) {
+        padding-left: 75px;
+        padding-right: 75px;
+    }
+
+    @media (min-width: $large) {
+        padding-left: 125px;
+        padding-right: 125px;
+    }
 }
 
 .site-head-container {
@@ -26,8 +38,11 @@
     display: flex;
     align-items: center;
     margin-right: 5px;
-    white-space: nowrap;
-    font-size: 3rem;	
+    font-size: 3rem;
+
+    @media (min-width: $small) {
+        white-space: nowrap;
+    }
 }
 
 .nav {
@@ -36,6 +51,10 @@
     margin: 0 0 0 -12px;
     padding: 0;
     list-style: none;
+
+    li:last-of-type a {
+        padding-right: 0;
+    }
 }
 
 .site-head li {
@@ -57,6 +76,8 @@ button.nav-submenu-button {
 .site-head-left a {
     color: #c09859;
     font-size: 3rem;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .site-head-right a, 
@@ -131,20 +152,23 @@ ul.nav + ul.nav {
     width: 170px;
     max-width: unset;
     text-align: left;
-    background-color: white;
     border-radius: 5px;
 
-    &::before {
-        content: "";
-        position: absolute;
-        top: -6px;
-        right: 21px;
-        width: 0;
-        height: 0;
-        border-right: 7px solid transparent;
-        border-bottom: 7px solid white;
-        border-left: 7px solid transparent;
-    } 
+    @media (min-width: $small) {
+        background-color: white;
+        
+        &::before {
+            content: "";
+            position: absolute;
+            top: -6px;
+            right: 21px;
+            width: 0;
+            height: 0;
+            border-right: 7px solid transparent;
+            border-bottom: 7px solid white;
+            border-left: 7px solid transparent;
+        } 
+    }
 
     &, & * {
         visibility: hidden;
@@ -152,11 +176,12 @@ ul.nav + ul.nav {
         transition: ease 0.25s;
     }
 
-    &.nav-submenu-open, &.nav-submenu-open * {
+    &.nav-submenu-open, 
+    &.nav-submenu-open * {
         visibility: visible;
         opacity: 1;
     }
-    
+
     &.nav-submenu-open .nav-current a {
         opacity: 0.5;
     }
@@ -173,7 +198,7 @@ ul.nav + ul.nav {
     padding: 12px 12px 12px 0;
 }
 
-@media (max-width: 850px) {
+@media (max-width: $small) {
     .site-head {
         padding-top: 0;
         padding-left: 5px;
@@ -187,7 +212,7 @@ ul.nav + ul.nav {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        height: 40px;
+        height: 47px;
         background: rgba(255,255,255,0);
         z-index: -1;
         transition: all 0.4s ease-out;

@@ -5,7 +5,15 @@
   width: unset;
 }
 
-.home-template .post-full-content > p:first-of-type {
-  width: 48ch;
-  font-size: 1.4em;
+.home-template .post-content-body > p:first-of-type {
+  font-size: 1.5em;
+  width: 100%;
+
+  @media (min-width: var(--medium)) {
+    width: 48ch;
+  }
+}
+
+.home-template .post-content-body a {
+  text-decoration: underline;
 }

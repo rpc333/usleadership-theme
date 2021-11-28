@@ -185,12 +185,13 @@ body {
 }
 
 .post-content-body {
-    font-size: 1.9rem;
+    font-size: 1.7rem;
     line-height: 1.65em;
-}
-@media (max-width: 500px) {
-    .post-content-body {
-        font-size: 1.7rem;
+    padding-right: 1ch;
+
+    @media (min-width: var(--small)) {
+        font-size: 1.9rem;
+        padding-right: 0;
     }
 }
 

@@ -1,6 +1,12 @@
 /* Variables
 /* ---------------------------------------------------------- */
 
+$xlarge: 1680px;
+$large: 1280px;
+$medium: 980px;
+$small: 800px;
+$xsmall: 480px;
+
 :root {
 
     /* Colours */
@@ -19,11 +25,11 @@
     --font-heavy: 900;
 
     /* Breakpoints */
-    --xlarge: 1680px;
-    --large: 1280px;
-    --medium: 980px;
-    --small: 740px;
-    --xsmall: 480px;
+    --xlarge: $xlarge;
+    --large: $large;
+    --medium: $medium;
+    --small: $small;
+    --xsmall: $xsmall;
 
     /* Sizes */
     --height: 4rem;

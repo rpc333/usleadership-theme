@@ -1,3 +1,5 @@
+@use "vars" as *;
+
 /* Styling for Ghost-specific elements
 /* ---------------------------------------------------------- */
 
@@ -197,7 +199,7 @@
     max-width: 240px;
 }
 
-@media (max-width: 850px) {
+@media (max-width: $small) {
     .kg-bookmark-card {
         margin: 7vw 0;
     }
