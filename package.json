@@ -1,7 +1,7 @@
 {
     "name": "usleadership-theme",
     "description": "The Ghost theme for the American Leadership Foundation website.",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "engines": {
         "ghost": ">=4.0.0",
         "ghost-api": "v4"

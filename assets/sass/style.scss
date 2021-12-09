@@ -34,6 +34,8 @@ production stylesheet in assets/built/style.css using sass
 @use "pages/scholarship";
 @use "pages/post";
 
+@use "bundled/mailchimp";
+
 @use "custom";
 
 
